@@ -1,0 +1,163 @@
+to run express app use npm run start.
+// c => post(create)
+// r => get(read)
+// u => patch(update)
+// d => delete
+
+// making api
+// frontend request backend, backend give response according to that request, this is call making api.
+
+// middleware are the function which has req, res, and next.
+//to trigger another middleware we have to call next().
+// middleware is divided into two parts 
+1. normal middleware
+    (req, res, next) => {}
+    to trigger next middleware we have to call next()
+
+2. error middleware
+    (err, req, res, next) =>{}
+    to trigger next error middleware we have to call next("a")
+
+
+    in searching only value is matter type is not matter.
+
+
+for ascending sort=>    .find({}).sort("name")
+for ascending sort=>    .find({}).sort("name age")
+for descending sort=>    .find({}).sort("-name")
+for descending sort=>    .find({}).sort("name -age")
+
+// sorting.(unlike js mongoose db sorting works for number.)
+// ascending sort.
+.find({}).sort("name")
+.find({}).sort("name age")
+
+// descending sort.
+.find({}).sort("-name")
+.find({}).sort("name -age")
+
+find has control over the object where as select has control over the object property.
+select
+.find({}).select("name age -_id")
+
+
+skip and limit
+
+.find({}).skip("3")
+
+.find({}).limit("5")
+
+
+pagination 
+.find({}).skip("3").limit("5")
+
+hashing
+bcrypt => it is used for hashing.
+
+
+let hashpassword = await bcrypt.hash(password,10)
+
+
+
+dynamic must be write in last.
+i.e =>
+route("/: userId") that is localhost:8000/users/any
+
+
+// boolean true=> 1, false => 0.
+
+// token=> jsonwebtoken
+    generate-> 
+        detail
+        logo
+        expiryInfo
+    validate
+
+
+handle file 
+    static folder
+http://localhost:8000/.jpg
+
+alt + shift + o => remove unused import and arrange the files in particular order.
+
+one request must have only one response.
+if more than one response is written in same request then the error shows => Cannot set headers after they are sent to the client.
+
+
+// multer => it is package which takes images from postman and add images to the public folder.
+
+in form data we can get file information through req.files where as we can get other information via req.body.
+
+
+//create api  localhost:8000/images
+// method post
+// pass images in field file.
+// pass files 
+// the api must produce the links for that files.
+
+.env 
+
+status code
+success => 2XX
+post, patch -> 201
+get, delete -> 200
+
+failure => 4XX
+404 -> not found
+409 -> conflict
+
+status code
+register
+login
+my profile
+update profile
+update password
+
+
+.env
+always make .env file in root folder.
+in .env we define special variable.(credential, port, links)
+variable name must be declare in upper case.
+
+register->
+    data 
+    hash
+    save
+    email
+
+
+login->
+    email, password.
+    if user with that email exist.
+    if user exist check password match or not.
+    if match generate token 
+    send token to postman.
+my profile->
+    pass token from postman
+    get token in backend
+    validate token
+    if validate => show my-profile.
+
+update-profile
+update-password
+
+
+cors -> cross, origin, resource, sharing.
+
+
+login management
+ 1) Register
+ 2) login
+ 3) My profile
+ 4) My profile update
+ 5) Update password
+ 6) Forgot and reset password
+ 7) Delete user
+ 8) Read all user
+ 9) Read specific user
+
+
+
+ Register:
+    1) Register
+    2) Verify email
